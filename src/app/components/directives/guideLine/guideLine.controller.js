@@ -6,7 +6,7 @@ export class GuideLineController {
     this.scope = $scope;
     this.selectedLanguage = 'english';
     this.privacyPolicies = false;
-    this.timeLeft = 35;
+    this.timeLeft = 30;
     this.activateQuizStartButton = false;
     var timerId = setInterval(() => {
       if (this.timeLeft == 0) {
