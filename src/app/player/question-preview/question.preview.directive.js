@@ -7,7 +7,8 @@ export class QuestionPreviewDirective {
     this.transclude = true;
     this.scope = {
       userDetails: '=',
-      takePic: '&'
+      takePic: '&',
+      ssoid: '='
     };
   }
 }

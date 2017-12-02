@@ -15,7 +15,7 @@ export class QuestionPreviewController {
     this.isFiveMinutesRemaining = false;
     this.isFastPreviousNext = false;
 
-    var timerId = this.interval(() => {
+    this.timerId = this.interval(() => {
       this.scope.takePic({});
     }, 5000);
 
@@ -66,15 +66,18 @@ export class QuestionPreviewController {
   autoSave() {
     this.isApiCall = true;
     this.interval.cancel(this.timerControl);
+    this.interval.cancel(this.timerId);
     if (this.rootScope.isCameraActivated) {
       this.scope.takePic({}).then((resp) => {
         // this.responseObject.userImages.push(resp.data);
       }, () => {});
     }
-    this.QuestionService.responseUpdate(this.responseObject).then((respData) => {
+    this.QuestionService.responseUpdate(this.responseObject, this.scope.ssoid).then((respData) => {
       this.responseObject.isTestComplete = true;
       this.isApiCall = false;
+      console.log('ttttttttttttttt');
       this.showFinalCount(respData.isPass, respData.score, respData.returnUrl);
+      this.interval.cancel(this.timerId);
     }, (err) => {
       this.isApiCall = false;
       // console.log('error on final auto save');

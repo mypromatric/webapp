@@ -75,12 +75,12 @@ export class PlayerController {
       var idata = ctx.getImageData(0, 0, this._video.width, this._video.height);
       ctxPat.putImageData(idata, 0, 0);
       if (type && type === 'trainSys') {
-        return this.http.post(`${this.LilConstants.PLAYER_API_URL}api/photo`, {
+        this.http.post(`${this.LilConstants.PLAYER_API_URL}api/photo`, {
           data: patCanvas.toDataURL(),
           userName: this.ssoid
         });
       } else {
-        return this.http.post(`${this.LilConstants.PLAYER_API_URL}api/evailPic`, {
+        return this.http.post(`${this.LilConstants.PLAYER_API_URL}api/identify`, {
           data: patCanvas.toDataURL(),
           userName: this.ssoid
         });

@@ -5,14 +5,15 @@ export function AuthInterceptor($cookies, $q, LilConstants, $location) {
       config.headers = config.headers || {};
       config.timeout = 300000;
       // For admin mode APIS
-      if (config.url.indexOf(LilConstants.API_URL) > -1) {
-        if (angular.isUndefined(config.headers.Authorization)) {
-          if (config.url.indexOf('/user/login') < 0) {
-            const token = $cookies.get('doitsAssessment.token');
-            token && (config.headers.Authorization = token);
-          }
-        }
-      }
+      // if (config.url.indexOf(LilConstants.API_URL) > -1) {
+      //   if (angular.isUndefined(config.headers.Authorization)) {
+      //     if (config.url.indexOf('/user/login') < 0) {
+      //       const token = $cookies.get('doitsAssessment.token');
+      //       token && (config.headers.Authorization = token);
+      //     }
+      //   }
+      // }
+      
       // For player mode APIS
       // if (config.url.indexOf(LilConstants.PLAYER_API_URL) > -1) {
       //   if (angular.isUndefined(config.headers.Authorization)) {
