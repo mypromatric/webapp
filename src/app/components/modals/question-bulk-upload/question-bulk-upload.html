@@ -1,0 +1,97 @@
+<spinner-directive ng-show="QBUCtrl.isAPICall"></spinner-directive>
+<div class="modal-header">
+  <label class="pull-left">Upload Bulk Quizzes</label>
+</div>
+<div class="modal-body p-tb-0">
+  <div class="row">
+    <div class="col-md-12 padding-zero quiz-table-container">
+      <div class="table-responsive institute-setup-modal-table">
+        <table class="table table-bordered table-striped table-hover" ng-if="QBUCtrl.uploadedList.length > 0">
+          <thead>
+            <tr class="question-bulk-table-heading text-capitalize">
+              <th class="serial-number text-center">
+                <input type="checkbox" ng-model="QBUCtrl.selectAll" ng-click="QBUCtrl.selectAllFn(QBUCtrl.selectAll)">
+              </th>
+              <th class="serial-number">#</th>
+              <th class="name-title">Question Type</th>
+              <th>Language</th>
+              <th>Question Text</th>
+              <th>Option 1</th>
+              <th>Option 2</th>
+              <th>Option 3</th>
+              <th>Option 4</th>
+              <th>Correct option</th>
+            </tr>
+          </thead>
+          <tbody class="question-bulk-table-body">
+            <tr ng-repeat="item in QBUCtrl.uploadedList track by $index" ng-class="{'danger': false}">
+              <td class="text-center">
+                <span>
+                  <input type="checkbox"
+                    ng-model="item.isSelected"
+                    ng-change="QBUCtrl.selectAll = false">
+                </span>
+              </td>
+              <td>{{$index + 1}}</td>
+              <td>
+                <input type="text" ng-model="item.type">
+              </td>
+              <td>
+                <input type="text" ng-model="item.language">
+              </td>
+              <td>
+                <input type="text" ng-model="item.question">
+              </td>
+              <td>
+                <input type="text" ng-model="item.choice1">
+              </td>
+              <td>
+                <input type="text" ng-model="item.choice2">
+              </td>
+              <td>
+                <input type="text" ng-model="item.choice3">
+              </td>
+              <td>
+                <input type="text" ng-model="item.choice4">
+              </td>
+              <td>
+                <input type="text" ng-model="item.correctChoice">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--<div class="row m-b-15">
+    <div class="col-md-12">Add skills to multiple questions by selecting them</div>
+    <div class="col-md-12">
+      <ui-select multiple
+        class="pull-left question-bulk-add-skill-container"
+        close-on-select="false"
+        ng-model="QBUCtrl.bulkSkillsForQuestions">
+        <ui-select-match placeholder="Select Skills">{{$item.name}}</ui-select-match>
+        <ui-select-choices repeat="_i in QBUCtrl.skills | filter:$select.search">
+          {{_i.name}}
+        </ui-select-choices>
+
+      </ui-select>
+      <button type="button"
+        name="button"
+        class="btn btn-primary pull-right question-bulk-add-skills"
+        ng-click="QBUCtrl.addBulkSkills()">
+        Add
+      </button>
+    </div>
+  </div>-->
+</div>
+
+<div class="modal-footer p-t-0">
+
+  <button type="button" name="button" class="btn btn-default" ng-click="QBUCtrl.uibModalInstance.dismiss()">
+    Cancel
+  </button>
+  <button type="button" name="button" class="btn btn-danger" ng-click="QBUCtrl.upload()">
+    Upload and finish
+  </button>
+</div>

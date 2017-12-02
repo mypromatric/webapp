@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 site-header">
+    <a href="#">
+        <img src="/assets/images/assesmentSolution.png" alt="">
+    </a>
+    <span ng-if="userType==='creator'" class="pull-right logout-button" ng-click="headerCtrl.logout()">
+    </span>
+    <span ng-if="headerCtrl.AuthService.isLoggedIn() && userType === 'creator'" class="pull-right name-label">
+        <label >{{headerCtrl.AuthService.currentUser.name}}</label>
+    </span>
+</div>

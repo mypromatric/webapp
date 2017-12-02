@@ -1,0 +1,24 @@
+<header-directive user-type="player"></header-directive>
+<spinner-directive ng-show="playerCtrl.isApiCall"></spinner-directive>
+<guide-line-directive
+  ng-if="!playerCtrl.isTestStart && playerCtrl.isShowGuide"
+  user-details="playerCtrl.userDetails"
+  take-pic="playerCtrl.takePic()"
+  call-back="playerCtrl.startTest(guideLines)"
+  guide-lines="playerCtrl.guideLines"
+  ssoid="playerCtrl.ssoid">
+</guide-line-directive>
+
+<question-preview-directive
+  ng-if="playerCtrl.isTestStart && playerCtrl.isShowGuide"
+  take-pic="playerCtrl.takePic()"
+  user-details="playerCtrl.userDetails" ssoid="playerCtrl.ssoid">
+</question-preview-directive>
+
+
+<div class="" style="display: none;">
+  <webcam on-stream="playerCtrl.onStream(stream)" on-error="playerCtrl.onError(err)" on-streaming="playerCtrl.onSuccess()" channel="playerCtrl.videoChannel">
+  </webcam>
+</div>
+<canvas id="captured-pic" width="300" height="300" style="display: none;"></canvas>
+<!-- <button type="button" name="button" ng-click="playerCtrl.takePic()">Take Pic</button> -->

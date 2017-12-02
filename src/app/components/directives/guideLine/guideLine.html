@@ -1,0 +1,184 @@
+<spinner-directive ng-show="GLCtrl.isApiCall"></spinner-directive>
+<!-- <div class="col-md-12 col-sm-12 col-xs-12 guidline-right"> -->
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="col-md-12 col-sm-12 col-xs-12 ">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="row">
+        <div class="col-ms-12 col-sm-12 col-xs-12">
+          <h3 class="color-red">Guidelines </h3>
+        </div>
+        <div class="col-ms-12 col-sm-12 col-xs-12">
+          <label class="select-language">Select Language :</label>
+          <label class="m-r-10" tooltip="Objective Quiz" for="english">
+                <input type="radio" name="type" id="english" value="english" ng-model="GLCtrl.selectedLanguage" />
+                English
+              </label>
+          <label tooltip="Objective Quiz" for="hindi">
+                <input type="radio" name="type" id="hindi" value="hindi" ng-model="GLCtrl.selectedLanguage" />
+                Hindi
+              </label>
+        </div>
+      </div>
+    </div>
+    <div class="guidline-block col-md-12 col-sm-12 col-xs-12" ng-if="GLCtrl.selectedLanguage === 'english'">
+      <ol>
+        <li>
+          <p>Exam Duration (in Minutes.) - {{GLCtrl.guideLines.examDuration}}</p>
+        </li>
+        <li>
+          <p>The candidates should read the instructions carefully and indicate that they have done so by 'checking' (click) the box at the bottom of the screen, after which the 'Start Test' button is activated.</p>
+        </li>
+        <li>
+          <p>After clicking on the 'Start Test' button the actual test time will begin.</p>
+        </li>
+        <li>
+          <p>There are {{GLCtrl.guideLines.questionForExam}} questions. The total marks allotted to the test are {{GLCtrl.guideLines.questionForExam * GLCtrl.guideLines.marksPerQuestion}}.</p>
+        </li>
+        <li>
+          <p>Only one question will be displayed at a time.</p>
+        </li>
+        <li>
+          <p>In order to answer a question, the candidates should 'mouse click' the option they think is appropriate/ correct.</p>
+        </li>
+        <li>
+          <p>The alternative which has been clicked on will be highlighted and shall be treated as the answer given by the candidate for the question.</p>
+        </li>
+        <li>
+          <p>In case a candidate does not wish to attempt the question then he/ she should not click on any option for that question and click on the 'Next' button to proceed to the next question.</p>
+        </li>
+        <li>
+          <p>The question numbers of attempted and unattempted questions are also shown to the right of the screen. A candidate can then click on any of the question numbers to view the question, in order to attempt/ revise his/her answer to the question.</p>
+        </li>
+        <li>
+          <p>The question palette at the right of the screen shows the following status of each of the questions numbered-
+            <ul>
+              <li>
+                <p> <label class="color-label attemped"></label> Light Green box: You have answered the Question
+                </p>
+              </li>
+              <li>
+                <p> <label class="color-label active"></label> Dark Green box: Your current Question
+                </p>
+              </li>
+              <li>
+                <p> <label class="color-label"></label> White box: You have not answered the Question
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>A candidate can navigate between questions by clicking on the question number displayed to the right of the screen.</p>
+        </li>
+        <li>
+          <p>When a candidate clicks on a particular question, it takes some time for the question to appear. The time lost is not deducted from the total time allotted for the test.</p>
+        </li>
+        <li>
+          <p>At the bottom of the page there is a button of 'End Assesment', when you complete all the question press on 'Submit Test' to over the exam.</p>
+        </li>
+        <li>
+          <p>If the contenders doesn’t finish the exam in a given time limit, then resopnse of candidate will automatically get saved.</p>
+        </li>
+        <li ng-if="GLCtrl.guideLines.negativeMarkingEnabled === 'false'">
+          <p>There is no negative marking.</p>
+        </li>
+        <li ng-if="GLCtrl.guideLines.negativeMarkingEnabled === 'true'">
+          <p>There is negative marking. For each wrong question {{GLCtrl.guideLines.negativeMarksPercentage}} % marks will deducted.</p>
+        </li>
+        <li>
+          <p>Under no circumstances should a candidate click on any of the 'keyboard keys' once the exam starts as this will lock the exam.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="guidline-block col-md-12 col-sm-12 col-xs-12" ng-if="GLCtrl.selectedLanguage === 'hindi'">
+      <ol>
+        <li>
+          <p>परीक्षा अवधि - {{GLCtrl.guideLines.examDuration}} (मिनटों में)</p>
+        </li>
+        <li>
+          <p>उम्मीदवार निर्देशों को ध्यान से पढ़े एवं उम्मीदवार ने ऐसा कर लिया है, इसे सुनिश्चित करने के लिए निर्देशों के नीचे दिए गये बॉक्स / खाने पर क्लिक करें | इसके बाद "परीक्षा शुरू करें" बटन पर क्लिक करें |</p>
+        </li>
+        <li>
+          <p>"परीक्षा शुरू करें" बटन पर क्लिक करने के पश्चात परीक्षा प्रारंभ हो जाएगी |</p>
+        </li>
+        <li>
+          <p>कुल प्रश्न संख्या {{GLCtrl.guideLines.questionForExam}} है | इस परीक्षा के लिए पूर्णांक {{GLCtrl.guideLines.questionForExam * GLCtrl.guideLines.marksPerQuestion}} है |</p>
+        </li>
+        <li>
+          <p>एक बार में केवल एक प्रश्न प्रदर्शित होगा |</p>
+        </li>
+        <li>
+          <p>प्रश्न का उत्तर देने के लिए उम्मीदवार जिस विकल्प को सही समझते है, उस पर माउस से क्लिक करें |</p>
+        </li>
+        <li>
+          <p>उम्मीदवार ने जिस विकल्प को चुना है वह "हाईलाइट" हो जायेगा और उस प्रश्न का उत्तर समझा जाएगा |</p>
+        </li>
+        <li>
+          <p>यदि उम्मीदवार प्रश्न हल नहीं करना चाहता है तो बिना किसी विकल्प चुने "Next" पर क्लिक करें |</p>
+        </li>
+        <li>
+          <p>सभी प्रश्न संख्या स्क्रीन की दायीं तरफ प्रदर्शित होगी | किसी भी प्रश्न को हल करने अथवा उस पर पुनः विचार करने के लिए प्रश्न संख्या को चुनें(Click करें) |</p>
+        </li>
+        <li>
+          <p>स्क्रीन की दायीं तरफ दिए गए प्रश्न पटल में निम्नलिखित स्तिथियाँ होगी -
+            <ul>
+              <li>
+                <p> <label class="color-label attemped"></label> हल्का हरा खाना : प्रश्न हल कर दिया है |</p>
+              </li>
+              <li>
+                <p> <label class="color-label active"></label> गहरा हरा खाना : वर्तमान प्रश्न |</p>
+              </li>
+              <li>
+                <p> <label class="color-label"></label> सफ़ेद खाना : प्रश्न हल नहीं किया है |</p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>उम्मीदवार किसी भी प्रश्न पर जाने के लिए प्रश्न संख्या पर क्लिक करें |</p>
+        </li>
+        <li>
+          <p>जब उम्मीदवार किसी प्रश्न पर जाने के लिए प्रश्न संख्या पर क्लिक करता है तो प्रश्न स्क्रीन पर आने में कुछ समय लगता है | यह समय परीक्षा के कुल समय में नहीं जोड़ा जाएगा |</p>
+        </li>
+        <li>
+          <p>उम्मीदवार परीक्षा पुर्ण करने के पश्चात् स्क्रीन पर नीचे की ओर दिए गए "End Assessment" बटन पर क्लिक करें |</p>
+        </li>
+        <li>
+          <p>यदि दिए गए समय में उम्मीदवार परीक्षा पुर्ण नहीं कर पाता है तो दिए जा चुके उत्तर स्वतः ही रक्षित(Save) हो जायेंगे |</p>
+        </li>
+        <li ng-if="GLCtrl.guideLines.negativeMarkingEnabled === 'false'">
+          <p>उत्तर एवं प्रश्न हल न करने पर शुन्य अंक देय होगा | ऋणात्मक अंक का प्रावधान नहीं है |</p>
+        </li>
+        <li ng-if="GLCtrl.guideLines.negativeMarkingEnabled === 'true'">
+          <p>ऋणात्मक अंकन है | प्रत्येक गलत प्रश्न के लिए {{GLCtrl.guideLines.negativeMarksPercentage}}% अंक कट जाएगा |</p>
+        </li>
+        <li>
+          <p>परीक्षा प्रारंभ होने के पश्चात किसी भी परिस्थिति में उम्मीदवार की-बोर्ड के किसी भी बटन पर क्लिक नहीं करें अन्यथा स्क्रीन लॉक हो जाएगी |</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-12 text-center m-t-20">
+    <div class="agreement-block text-center">
+      <label class="checkbox-inline" for="privacyPolicies">
+        <span class="agreement-check">
+          <input class="pull-left"
+            type="checkbox"
+            id="privacyPolicies"
+            name="privacyPolicies"
+            data-ng-model="GLCtrl.privacyPolicies">
+        </span>
+        <span ng-if="GLCtrl.selectedLanguage === 'english'">I've understood the guidelines.</span>
+        <span ng-if="GLCtrl.selectedLanguage === 'hindi'">हाँ, मैं निर्देशों से सहमत हूँ |</span>
+      </label>
+    </div>
+    <button class="btn red-btn m-t-20"
+      type="button"
+      ng-click="GLCtrl.callBack()"
+      ng-disabled="!GLCtrl.privacyPolicies">
+      <!--  || !GLCtrl.activateQuizStartButton -->
+      <span ng-if="GLCtrl.selectedLanguage === 'english'">Start Test</span>
+      <span ng-if="GLCtrl.selectedLanguage === 'hindi'">परीक्षा शुरू करें</span>
+    </button>
+  </div>
+</div>

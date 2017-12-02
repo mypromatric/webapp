@@ -1,0 +1,33 @@
+<spinner-directive ng-show="loginCtrl.isApiCall"></spinner-directive>
+<div class="container" style="
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./assets/images/e-mitra.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 5vh;">
+  <div class="row">
+    <div class="col-md-offset-4 col-xs-12 col-sm-12 col-md-4">
+      <div class="login-container-form" style="margin-top: 50vh;">
+        <!-- <h5>Login</h5> -->
+        <form name="loginForm" role="form" ng-submit="loginForm.$valid && loginCtrl.login(loginCtrl.ssoid)">
+          <fieldset>
+            <div class="form-group" ng-class="{'has-error': (loginForm.ssoid.$touched && loginForm.ssoid.$invalid || loginForm.ssoid.$prestine) || (loginForm.email.$error.email)}">
+              <input class="form-control" placeholder="Enter SSOID" name="ssoid" ng-model="loginCtrl.ssoid" type="text" required>
+              <div class="font-size-12" ng-show="loginForm.ssoid.$error">
+                <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0" ng-show="loginForm.ssoid.$touched && loginForm.ssoid.$invalid || loginForm.ssoid.$prestine">
+                    <div ng-show="loginForm.ssoid.$error.ssoid && !loginForm.ssoid.$pristine">Please enter valid email.</div>
+                  </span>
+              </div>
+            </div>
+            <center>
+              <button type="submit" name="button" class="btn btn-circle btn-warning" ng-disabled="loginForm.$invalid">
+                  <img src="./assets/images/arrow-pointing-to-right.png" alt="" height="20px;">
+                </button>
+            </center>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

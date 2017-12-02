@@ -1,0 +1,45 @@
+<!-- <div class="modal-header">
+  <span class="pull-left wizard-title">Confermation</span>
+</div> -->
+<spinner-directive ng-show="CTSCtrl.isAPICall"></spinner-directive>
+<div class="modal-body text-center confrimation-modal">
+    <span ng-if="CTSCtrl.items.responseObject.selectedLanguage === 'english'">
+    <h2 class="color-red m-b-30" ng-if="CTSCtrl.remainingQuestions > 0"><span>{{CTSCtrl.remainingQuestions}}</span> Questions
+    still left!</h2>
+    <p class="m-b-0">After submission, you wont be able to</p>
+    <p ng-if="CTSCtrl.remainingQuestions > 0">attempt remaining questions.</p>
+    <p ng-if="CTSCtrl.remainingQuestions === 0">
+        change your response.
+    </p>
+    <br>
+    <p>Are you sure, you want to end assessment?</p>
+    </span>
+    <span ng-if="CTSCtrl.items.responseObject.selectedLanguage === 'hindi'">
+    <h2 class="color-red m-b-30" ng-if="CTSCtrl.remainingQuestions > 0"><span>{{CTSCtrl.remainingQuestions}}</span> प्रश्न
+    अभी भी बाकी है।
+    </h2>
+    <p class="m-b-0">परीक्षा समाप्त करने के बाद, </p>
+    <p ng-if="CTSCtrl.remainingQuestions > 0">आप शेष प्रश्नों का प्रयास करने में सक्षम नहीं होंगे।</p>
+    <p ng-if="CTSCtrl.remainingQuestions === 0">आप अपनी प्रतिक्रिया को बदलने में सक्षम नहीं होंगे।</p>
+    <p>क्या आप परीक्षा समाप्त करना चाहते हो?</p>
+    </span>
+</div>
+</div>
+<div class="modal-footer text-center confrimation-footer">
+    <button class="btn btn-danger" ng-click="CTSCtrl.close()">
+        <span ng-if="CTSCtrl.items.responseObject.selectedLanguage === 'english'">
+            NO
+        </span>
+        <span ng-if="CTSCtrl.items.responseObject.selectedLanguage === 'hindi'">
+            नहीं
+        </span>
+        </button>
+    <button class="btn btn-basic" type="submit" name="button" ng-click="CTSCtrl.save()"> 
+         <span ng-if="CTSCtrl.items.responseObject.selectedLanguage === 'english'">
+            YES
+        </span>
+        <span ng-if="CTSCtrl.items.responseObject.selectedLanguage === 'hindi'">
+            हाँ
+        </span>
+         </button>
+</div>

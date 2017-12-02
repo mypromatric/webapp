@@ -1,0 +1,30 @@
+.qbu-modal {
+  width: 90%;
+  
+  .institute-setup-modal-table{
+      min-height: 400px;
+      max-height: 370px !important;
+      overflow-y: auto;
+  }
+
+  .question-bulk-table-heading {
+    .question-bulk-skills-width {
+      min-width: 350px;
+      max-width: 350px;
+    }
+  }
+
+  .question-bulk-skills-header {
+    max-width: 400px;
+    // @include select-match();
+  }
+
+  .question-bulk-add-skills {
+    margin-bottom: 7px;
+  }
+
+  .question-bulk-add-skill-container {
+    width: 90%;
+  }
+}
+

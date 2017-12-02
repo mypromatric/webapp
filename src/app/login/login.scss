@@ -1,0 +1,129 @@
+.bg-gray{
+    background: $light-gray;
+    height: 100vh;
+}
+.login-container{
+    .login-left-container{
+        padding: 35px 0px;
+    }
+
+    .login-right-container{
+        padding: 70px 0px;
+    }
+
+    .login-container-form{
+        padding: 0px 20px 20px;
+        border: 1px solid $medium-gray;
+        // box-shadow: 0px 0px 5px $darkgray;
+        height: auto;
+        background: $white;
+
+        button{
+            margin-top: 30px;  
+        }
+        h5{
+            margin-bottom: 30px;
+            color: $gray;
+        }
+    }
+}
+
+.powered-by {
+  padding: 20px 30px;
+  margin-top: 0px;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+
+.result-input,
+.login-input {
+height: 60px;
+position: relative;
+margin-bottom: 10px;
+padding-top: 5px;
+width: 100%;
+
+    .name-label {
+        height: 12px;
+        position: absolute;
+        top: -10px;
+        height: 15px;
+        font-size: 12px;
+        -webkit-animation-name: labelDisplay;
+        -webkit-animation-duration: 3s;
+        animation-name: labelDisplay;
+        animation-duration: 3s;
+    }
+    @-webkit-keyframes labelDisplay {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes labelDisplay {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+.result-modal{
+    width: 90%;
+    .modal-header{
+        h4{
+            color: $white;
+            font-size: 18px;
+        }
+    }
+    .modal-body{
+        padding: 10px 15px 0px;
+        .search-filter{
+            .search-filter-card{
+                width: 20%;
+                padding: 0px 1%;
+                float: left;
+                position: relative;
+                .searchlist{
+                    position: absolute;
+                    width: 90%;
+                    z-index: 9;
+                    background: $white;
+                    border: 1px solid $medium-gray;
+                    -webkit-box-shadow: 0px 9px 18px -12px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 0px 9px 18px -12px rgba(0,0,0,0.75);
+                    box-shadow: 0px 9px 18px -12px rgba(0,0,0,0.75);
+                    .searchlist-ul{
+                        margin: 0px;
+                        padding: 0px;
+                        li{
+                            list-style-type: none;
+                            padding: 0px 5px;
+                            cursor: pointer;
+                            border-bottom: 1px solid $light-gray;
+                            &:hover{
+                                background: $light-gray;
+                            }
+                        }
+                    }
+                }
+            }        
+        }
+        .detail-report,
+        .summery-report{
+            margin-top: 20px;
+            background: $light-gray;
+            height: 350px;
+            overflow-y: auto;
+        }
+    }
+}

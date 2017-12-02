@@ -1,0 +1,12 @@
+{
+  "name": "doitc-assessment",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "animate.css": "~3.4.0"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "jquery": "~2.1.4"
+  }
+}

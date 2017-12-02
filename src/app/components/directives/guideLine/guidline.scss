@@ -1,0 +1,71 @@
+.guidline-left{
+    font-size: 16px;
+    margin: 20px 0px;
+    border-right: 1px solid $medium-gray;
+    height: 83vh;  
+    padding: 50px 0px 30px 30px;
+
+    .attended-name-id{
+        font-size: 20px;
+    }
+    .time-slot{
+        margin-top: 60px;
+        font-size: 20px;
+    }
+
+    .tag-label{
+        width: 100%;
+        display: block;
+        margin-bottom: 0px;
+    }
+
+    .start-time{
+        margin-top: 60px;
+        font-size: 20px;
+    }
+}
+
+.guidline-right{
+
+    .select-language{
+        font-size: 16px;
+        color: $darkgray; 
+        margin-right: 10px;
+    }
+    
+    .guidline-block{
+        height: 340px;
+        overflow-y: auto;
+        margin-top: 10px;
+        border: 1px solid $light-gray;
+        padding: 10px 0px;
+    }
+    .agreement-block{
+        font-size: 1.2em;
+        color: $black;
+        padding-top: 10px;
+
+        .agreement-check{
+            margin-bottom: 2px;
+            display: inline-block;
+        }
+    }
+
+    .color-label{
+        height: 20px;
+        width: 20px;
+        float: left;
+        margin-right: 10px;
+        display: block;
+        border: 1px solid $light-gray;
+
+        &.active{
+            background-color: #6cd253;
+        }
+
+        &.attemped{
+            background-color: #d4f5d0;
+        }
+    }
+    
+}
