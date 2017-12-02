@@ -9,15 +9,14 @@ export class QuestionService {
 
   fetchQuestions(examDetails) {
     var defer = this.q.defer();
+    QData.response = Object.values(QData.response);
     defer.resolve(QData);
     return defer.promise;
   }
 
   responseUpdate(response) {
     var defer = this.q.defer();
-    this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/fetchExamResult`, {
-      userResponse: response
-    }).then((resp) => {
+    this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/fetchExamResult`, { userResponse: response }).then((resp) => {
       defer.resolve(resp.data);
     }, (eResp) => {
       defer.reject(eResp.data);
@@ -26,8 +25,6 @@ export class QuestionService {
   }
 
   partialResponseUpdate(partialResponse) {
-    return this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/partialResponseUpdate`, {
-      partialResponse: partialResponse
-    });
+    return this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/partialResponseUpdate`, { partialResponse: partialResponse });
   }
 }
