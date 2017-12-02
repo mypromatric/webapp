@@ -35,10 +35,6 @@ import {
 } from './components/services/auth.service';
 
 import {
-  HomeController
-} from './home/home.controller';
-
-import {
   LoginController
 } from './login/login.controller';
 
@@ -94,14 +90,6 @@ import {
   toTime
 } from './components/filters/seconds.to.time.filter';
 
-import {
-  PracticeController
-} from './home/tabs/practice/practice.controller';
-
-import {
-  PreController
-} from './home/tabs/pre/pre.controller';
-
 angular.module('DOITCAssessment', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap', 'webcam'])
   .constant('LilConstants', Constants)
   .config(config)
@@ -109,7 +97,6 @@ angular.module('DOITCAssessment', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .run(runBlock)
   .service('AuthService', AuthService)
   .service('AuthInterceptor', AuthInterceptor)
-  .controller('HomeController', HomeController)
   .controller('LoginController', LoginController)
   .controller('headerController', HeaderController)
   .directive('resourceUpload', () => new ResourceUpload())
@@ -123,6 +110,4 @@ angular.module('DOITCAssessment', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .directive('headerDirective', () => new HeaderDirective())
   .controller('confirmTestSubmission', ConfirmTestSubmission)
   .service('QuestionService', QuestionService)
-  .filter('toTime', toTime)
-  .controller('PracticeController', PracticeController)
-  .controller('PreController', PreController);
+  .filter('toTime', toTime);
