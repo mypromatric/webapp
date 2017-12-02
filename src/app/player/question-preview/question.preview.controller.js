@@ -14,6 +14,15 @@ export class QuestionPreviewController {
     this.isConfirmModalOpen = false;
     this.isFiveMinutesRemaining = false;
     this.isFastPreviousNext = false;
+
+    var timerId = this.interval(() => {
+      this.scope.takePic({});
+    }, 5000);
+
+    $scope.$on('$destroy', () => {
+      this.interval.cancel(this.timerId);
+    });
+
     this.QuestionService.fetchQuestions({
       language: this.scope.userDetails.language,
       examType: this.scope.userDetails.examType
@@ -25,9 +34,9 @@ export class QuestionPreviewController {
         this.enableTest = true;
         this.startTimer();
         if (this.rootScope.isCameraActivated) {
-          this.scope.takePic().then((resp) => {
-            // this.responseObject.userImages.push(resp.data);
-          }, () => { });
+          // this.scope.takePic().then((resp) => {
+          //   // this.responseObject.userImages.push(resp.data);
+          // }, () => {});
         }
       } else {
         this.showFinalCount(this.responseObject.isPass, this.responseObject.score);
@@ -58,9 +67,9 @@ export class QuestionPreviewController {
     this.isApiCall = true;
     this.interval.cancel(this.timerControl);
     if (this.rootScope.isCameraActivated) {
-      this.scope.takePic().then((resp) => {
+      this.scope.takePic({}).then((resp) => {
         // this.responseObject.userImages.push(resp.data);
-      }, () => { });
+      }, () => {});
     }
     this.QuestionService.responseUpdate(this.responseObject).then((respData) => {
       this.responseObject.isTestComplete = true;

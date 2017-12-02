@@ -16,15 +16,13 @@ export class QuestionService {
 
   responseUpdate(response) {
     var defer = this.q.defer();
-    this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/fetchExamResult`, { userResponse: response }).then((resp) => {
-      defer.resolve(resp.data);
-    }, (eResp) => {
-      defer.reject(eResp.data);
-    });
+    defer.resolve({isPass: response.isPass, score: response.score});
     return defer.promise;
   }
 
   partialResponseUpdate(partialResponse) {
-    return this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/partialResponseUpdate`, { partialResponse: partialResponse });
+    var defer = this.q.defer();
+    defer.resolve(partialResponse);
+    return defer.promise;
   }
 }

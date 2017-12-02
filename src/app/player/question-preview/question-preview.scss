@@ -1,196 +1,202 @@
-.assesment-player{
-    background: $light-gray;
-    height: auto;
-    overflow-y: auto;
-    .assesment-player-left {
-        .assesment-player-left-header {
-            padding: 20px 10px 5px;
-            font-size: 20px;
-            color: $brand-danger;
+.assesment-player {
+  background: $light-gray;
+  height: auto;
+  overflow-y: auto;
 
-            .time-icon{
-                height: 20px;
-                color: $brand-danger;  
-                vertical-align: middle;             
-            }
-            .time-animation{
-                -webkit-animation-name: timeIcon;
-                -webkit-animation-duration: 2s;
-                animation-name: timeIcon;
-                animation-duration: 2s;
-                -webkit-animation-iteration-count: 10; /* Safari 4.0 - 8.0 */
-                animation-iteration-count: 300;
-            }
-            @-webkit-keyframes timeIcon {
-                from {
-                    opacity: 0;
-                }
-        
-                to {
-                    opacity: 1;
-                    height: 25px;
-                    color: yellow;
-                }
-            }
-            @keyframes timeIcon {
-                from {
-                    opacity: 0;
-                }
-        
-                to {
-                    opacity: 1;
-                    height: 25px;
-                    color: yellow;
-                }
-            }
+  .assesment-player-left {
+    .assesment-player-left-header {
+      padding-top: 20px;
+      font-size: 20px;
+      color: $brand-danger;
 
-            .ques-total-count{
-                text-align: center;
-            }
-            
-            .quis-attmp-time{
-                text-align: right;
-            }
+      .time-icon {
+        height: 20px;
+        color: $brand-danger;
+        vertical-align: middle;
+      }
+
+      .time-animation {
+        -webkit-animation-name: timeIcon;
+        -webkit-animation-duration: 2s;
+        animation-name: timeIcon;
+        animation-duration: 2s;
+        -webkit-animation-iteration-count: 10;
+        /* Safari 4.0 - 8.0 */
+        animation-iteration-count: 300;
+      }
+      @-webkit-keyframes timeIcon {
+        from {
+          opacity: 0;
         }
-        .quiz-container{
-            background: $white;
-            .quiz-placeholder{                
-                height: 367px;
-                overflow-y: auto;
-                margin-top: 10px;
 
-                .question-block{
-                   font-size: 20px;
-                   color: $darkgray;
-                   margin-bottom: 14px;
-                   padding: 0px 15px 0px;
-                   font-weight: bold;
-                }
-
-                .option-block{
-                    .option{
-                        width: auto;
-                        padding: 5px 10px;
-                        font-size: 18px;
-                        font-weight: normal;
-                        input[type = 'radio']{
-                            vertical-align: middle;
-                            margin-top: 0px;
-                        }
-                    }
-                }
-
-            }
-            .quiz-container-footer{
-                height: 60px;
-                text-align: left;
-                padding: 10px 12px 10px 35px;
-            }
+        to {
+          opacity: 1;
+          height: 25px;
+          color: yellow;
         }
-        .submit-test-container{
-            padding: 20px 10px 20px;
+      }
+      @keyframes timeIcon {
+        from {
+          opacity: 0;
         }
+
+        to {
+          opacity: 1;
+          height: 25px;
+          color: yellow;
+        }
+      }
+
+      .ques-total-count {
+        text-align: left;
+      }
+
+      .quis-attmp-time {
+        text-align: right;
+      }
     }
-    .assesment-player-right{
-        background: $medium-gray;
-        height: 89.5vh;
-        padding: 10px 0px 10px 15px;
+
+    .quiz-container {
+      background: $white;
+
+      .quiz-placeholder {
+        height: 367px;
         overflow-y: auto;
+        margin-top: 10px;
 
-        .number-box{
-            height: 34px;
-            min-width: 34px;
-            margin: 3px;
-            line-height: 35px;
-            background: $white;
-            font-size: 16px;
-            color: $darkgray;
-            float: left;
-            text-align: center;
-            cursor: pointer;
-            transition: all ease-in-out 1s;
-
-            &:hover{
-                background: $light-gray;
-                box-shadow: 0px 0px 5px $darkgray;
-            }
-
-            &.attemped{
-                background-color: #d4f5d0;
-            }
-
-            &.active{
-                background-color: #6cd253;
-                box-shadow: 0px 0px 5px $darkgray;
-            }
-
-            &.notattemped{
-                background: $white;
-            }
+        .question-block {
+          font-size: 20px;
+          color: $darkgray;
+          margin-bottom: 14px;
+          padding: 0 15px;
+          font-weight: bold;
         }
+
+        .option-block {
+          .option {
+            width: auto;
+            padding: 5px 10px;
+            font-size: 18px;
+            font-weight: normal;
+
+            input[type = 'radio'] {
+              vertical-align: middle;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+
+      .quiz-container-footer {
+        height: 60px;
+        text-align: left;
+        padding: 10px 12px 10px 35px;
+      }
     }
 
-}
-
-.custome-modal{
-    position: fixed;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1030;
-    height: 100%;
-    width: 100%;
-    top:0px;
-    left: 0px;
-    .custome-modal-content{
-        margin-top: 0;
-        margin-bottom: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        .custome-modal-body{
-            width: 300px;
-            padding: 20px 15px;
-            min-height: 150px;
-            display: inline-table;
-            font-size: 16px;
-            text-align: center;
-            background: $white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            margin: auto;
-        }
+    .submit-test-container {
+      padding: 20px 10px;
     }
+  }
+
+  .assesment-player-right {
+    background: $medium-gray;
+    height: 89.5vh;
+    padding: 10px 0 10px 15px;
+    overflow-y: auto;
+
+    .number-box {
+      height: 34px;
+      min-width: 34px;
+      margin: 3px;
+      line-height: 35px;
+      background: $white;
+      font-size: 16px;
+      color: $darkgray;
+      float: left;
+      text-align: center;
+      cursor: pointer;
+      transition: all ease-in-out 1s;
+
+      &:hover {
+        background: $light-gray;
+        box-shadow: 0 0 5px $darkgray;
+      }
+
+      &.attemped {
+        background-color: #d4f5d0;
+      }
+
+      &.active {
+        background-color: #6cd253;
+        box-shadow: 0 0 5px $darkgray;
+      }
+
+      &.notattemped {
+        background: $white;
+      }
+    }
+  }
 }
 
-// reults page css here
-.result-container{
-    position: relative;
+.custome-modal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1030;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .custome-modal-content {
     margin-top: 0;
     margin-bottom: 0;
-    height: 89vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    .assesment-result{
-        margin: auto;
-        display: inline-table;
-        font-size: 18px;
-        background: white;
-        box-shadow: 1px 16px 25px #807d7d;
-        border: 2px solid #969696;
 
-        h1{
-            font-size: 50px;
-        }
-    
-        .assesment-result-total{
-            padding: 30px 60px 30px 100px;
-
-            .assesment-result-right{
-                color: $brand-danger;
-            }
-        }
+    .custome-modal-body {
+      width: 300px;
+      padding: 20px 15px;
+      min-height: 150px;
+      display: inline-table;
+      font-size: 16px;
+      text-align: center;
+      background: $white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      margin: auto;
     }
+  }
 }
-        
+// reults page css here
+.result-container {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .assesment-result {
+    margin: auto;
+    display: inline-table;
+    font-size: 18px;
+    background: white;
+    box-shadow: 1px 16px 25px #807d7d;
+    border: 2px solid #969696;
+
+    h1 {
+      font-size: 50px;
+    }
+
+    .assesment-result-total {
+      padding: 30px 60px 30px 100px;
+
+      .assesment-result-right {
+        color: $brand-danger;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 <guide-line-directive
   ng-if="!playerCtrl.isTestStart && playerCtrl.isShowGuide"
   user-details="playerCtrl.userDetails"
-  take-pic="playerCtrl.takePic()"
+  take-pic="playerCtrl.takePic(type)"
   call-back="playerCtrl.startTest(guideLines)"
   guide-lines="playerCtrl.guideLines"
   ssoid="playerCtrl.ssoid">
@@ -11,7 +11,7 @@
 
 <question-preview-directive
   ng-if="playerCtrl.isTestStart && playerCtrl.isShowGuide"
-  take-pic="playerCtrl.takePic()"
+  take-pic="playerCtrl.takePic(type)"
   user-details="playerCtrl.userDetails" ssoid="playerCtrl.ssoid">
 </question-preview-directive>
 

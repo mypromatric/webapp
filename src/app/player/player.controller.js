@@ -37,9 +37,13 @@ export class PlayerController {
   // }
 
   startTest(guideLines) {
-    Object.assign(this.userDetails, guideLines);
-    this.isTestStart = true;
-    this.isShowGuide = true;
+    if (this.rootScope.isCameraActivated) {
+      Object.assign(this.userDetails, guideLines);
+      this.isTestStart = true;
+      this.isShowGuide = true;
+    } else {
+      alertify.log('failed to start, camera not on');
+    }
   }
 
   // for camera Pic
@@ -56,7 +60,7 @@ export class PlayerController {
     this.rootScope.isCameraActivated = true;
   }
 
-  takePic() {
+  takePic(type) {
     if (this._video) {
       var patCanvas = document.querySelector('#captured-pic');
       if (!patCanvas) return;
@@ -70,10 +74,17 @@ export class PlayerController {
       ctx.drawImage(this._video, 0, 0, this._video.width, this._video.height);
       var idata = ctx.getImageData(0, 0, this._video.width, this._video.height);
       ctxPat.putImageData(idata, 0, 0);
-      return this.http.post(`${this.LilConstants.PLAYER_API_URL}question-response/imageUpload`, {
-        base64: patCanvas.toDataURL(),
-        ssoid: this.ssoid
-      });
+      if (type && type === 'trainSys') {
+        return this.http.post(`${this.LilConstants.PLAYER_API_URL}api/photo`, {
+          data: patCanvas.toDataURL(),
+          userName: this.ssoid
+        });
+      } else {
+        return this.http.post(`${this.LilConstants.PLAYER_API_URL}api/evailPic`, {
+          data: patCanvas.toDataURL(),
+          userName: this.ssoid
+        });
+      }
     }
   }
 }
