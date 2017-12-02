@@ -27,13 +27,13 @@ export class GuideLineController {
   }
 
   callBack() {
-    // if (this.activateQuizStartButton) {
+    if (this.activateQuizStartButton) {
     this.guideLines.language = this.selectedLanguage;
     this.scope.callBack({
       guideLines: this.guideLines
     });
-    // } else {
-    // alertify.alert(`Please Read Guidelines Carefully, Minimum time Left to ${this.timeLeft}`);
-    // }
+    } else {
+    alertify.alert(`Please Read Guidelines Carefully, Minimum time Left to ${this.timeLeft}`);
+    }
   }
 }
