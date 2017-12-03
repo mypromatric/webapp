@@ -74,7 +74,7 @@
 .color-gray{
   color: $gray ;
 }
-  
+
 .red-btn{
   @extend .btn;
   @extend .btn-danger;
@@ -90,7 +90,7 @@
     vertical-align: middle;
   }
 }
-  
+
 .modal-header{
   background: $themeRed;
   color: $white;
@@ -110,7 +110,7 @@
 }
 
 .spinner{
-  position: absolute; 
+  position: fixed; 
   height: 100%;
   width: 100%;
   margin: auto;
