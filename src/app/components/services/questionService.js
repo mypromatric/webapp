@@ -21,7 +21,8 @@ export class QuestionService {
       defer.resolve({
         isPass: response.isPass,
         score: response.score,
-        initBatchResp: data
+        initBatchResp: data,
+        avgRatio: data.avg
       });
     });
     return defer.promise;

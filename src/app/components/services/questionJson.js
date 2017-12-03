@@ -1,9 +1,9 @@
 export default {
   "examType": "pre",
-  "userId": "CK PALIWAL",
-  "batch": "110",
+  "userId": "Aditya",
+  "batch": "101",
   "role": "student",
-  "name": "CK110011",
+  "name": "ADI-101",
   "passingPercentage": 40,
   "marksPerQuestion": 2,
   "selectedLanguage": "english",

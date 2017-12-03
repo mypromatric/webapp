@@ -75,8 +75,7 @@ export class QuestionPreviewController {
     this.QuestionService.responseUpdate(this.responseObject, this.scope.ssoid).then((respData) => {
       this.responseObject.isTestComplete = true;
       this.isApiCall = false;
-      console.log('ttttttttttttttt');
-      this.showFinalCount(respData.isPass, respData.score, respData.returnUrl);
+      this.showFinalCount(respData.isPass, respData.score, respData.returnUrl, respData.avgRatio);
       this.interval.cancel(this.timerId);
     }, (err) => {
       this.isApiCall = false;
@@ -84,10 +83,11 @@ export class QuestionPreviewController {
     });
   }
 
-  showFinalCount(isPass, score, url) {
+  showFinalCount(isPass, score, url, avgRatio) {
     this.passStatus = isPass;
     this.score = score;
     this.returnUrl = url;
+    this.avgRatio = avgRatio;
     if (this.isConfirmModalOpen) this.confirmModalInstance.dismiss();
     this.remainingQuestionCount = 0;
     for (const question of this.responseObject.response) {

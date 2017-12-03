@@ -152,6 +152,15 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 m-t-10">
           <div class="col-md-7 col-sm-6 col-xs-9 assesment-reult-left">
+            <span ng-if="QPCtrl.responseObject.selectedLanguage === 'english'">Confidance Ratio</span>
+            <span ng-if="QPCtrl.responseObject.selectedLanguage === 'hindi'">Confidance Ratio</span>
+          </div>
+          <div class="col-md-5 col-sm-6 col-xs-3 assesment-result-right">
+            {{QPCtrl.avgRatio | number:2}}
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 m-t-10">
+          <div class="col-md-7 col-sm-6 col-xs-9 assesment-reult-left">
             <span ng-if="QPCtrl.responseObject.selectedLanguage === 'english'">Result status</span>
             <span ng-if="QPCtrl.responseObject.selectedLanguage === 'hindi'">परिणाम</span>
           </div>
